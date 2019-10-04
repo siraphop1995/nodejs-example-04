@@ -7,6 +7,13 @@
  * It will make router.METHOD call according to route configuration.
  */
 
+const config = {
+  authenticationServer: process.env.AUTH_SERVER
+};
+
+const Authorizor = require('../utils/authorizor');
+const authorizor = new Authorizor(require('./index'), config).authorize();
+
 module.exports = (router, routes, methods) => {
   const subscribeRoute = route => {
     const [httpVerb, resourceUri] = route.split(' ');
