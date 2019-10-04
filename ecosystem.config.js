@@ -6,7 +6,8 @@ module.exports = {
       env: {
         PORT: 3000,
         NODE_ENV: 'development',
-        MONGO_URL: 'mongodb://localhost:27017/express04'
+        MONGO_URL: 'mongodb://localhost:27017/express04',
+        AUTH_SERVER: 'http://localhost:3000'
       }
     }
   ].map(service => {

@@ -2,7 +2,8 @@
 
 module.exports = {
   'GET /': {
-    middlewares: ['helloWorld']
+    middlewares: ['helloWorld'],
+    roles: [ 'user']
   },
   'GET /user': {
     middlewares: ['getAllUsers']
