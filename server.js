@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const process = require('process');
-const routes = require('./src')
+const routes = require('./src');
+const errorHandler = require('./src/utils/errorHandler');
 
 app = require('./app');
 port = process.env.PORT || 3000;
@@ -17,7 +18,10 @@ mongoose.connect(process.env.MONGO_URL, mongooseConfig, error => {
 });
 
 //Router
-app.use('/', routes)
+app.use('/', routes);
+
+//custom error handler middleware
+app.use(errorHandler);
 
 //Listen port
 app.listen(port, () => {
